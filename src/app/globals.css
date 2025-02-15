@@ -7,7 +7,7 @@
     /* Minimum height set to full screen */
   body {
     min-height: 100vh; /* vh = viewport height */
-    background: linear-gradient(to bottom, #1f2937, #000); /* gradient from gray-800 to black */
-    color: #fff; /* Text color white */
+    background: linear-gradient(to right, #09001a, #1b0039); 
+    color: #fff ; /* Text color white */
   }
   }
