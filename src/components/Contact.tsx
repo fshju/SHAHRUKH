@@ -86,6 +86,7 @@ export default function Contact({ id }: { id: string }) {
             {/* Email */}
             <a
               href="mailto:shahrukhishtiaq29@gmail.com"
+              target="_blank"
               className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-400 text-white px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform"
               data-aos="fade-up"
             >

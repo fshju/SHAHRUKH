@@ -6,6 +6,8 @@ import AboutMe from "@/components/About";
 import Contact from "@/components/Contact";
 import Comments from "@/components/Comments";
 import PortfolioShowcase from "@/components/Portfolio";
+import Footer from "@/components/Footer";
+
 
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,8 +80,7 @@ const Page = () => {
                 </button>
               </li>
 
-
-              <li className="md:hidden">
+             <li className="md:hidden">
                 <button
                   onClick={() => setDarkMode(!darkMode)}
                   className="px-4 py-2 border hover:border-black rounded-md bg-no-repeat bg-right bg-[length:0%_100%] hover:bg-[length:100%_100%] hover:bg-left transition-all duration-500 bg-gradient-to-r from-purple-500 to-purple-700"
@@ -103,10 +104,12 @@ const Page = () => {
       <AboutMe id="about" />
       {/* <PortfolioSection/> */}
       <PortfolioShowcase id="portfolio"/>
-<div className="md:flex max-h-full justify-center">
-<Contact id="contact"/>
-<Comments/>
+      <div className="md:flex flex-wrap max-h-full justify-center overflow-hidden">
+  <Contact id="contact" />
+  <Comments />
+  <Footer/>
 </div>
+
     </div>
   );
 };

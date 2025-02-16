@@ -52,12 +52,12 @@ const PortfolioShowcase = ({ id }: { id: string }) => {
 
         {/* Description Animation */}
         <p
-          className="mb-10 text-sm text-primary text-center mt-2"
+          className="mb-10 text-xs md:text-sm  text-primary text-center mt-2"
           data-aos="fade-up"
         >
           Explore my journey through projects, certifications, and technical
           expertise.
-          <br />
+          <br className="hidden md:block"/>
           Each section represents a milestone in my continuous learning path.
         </p>
 
