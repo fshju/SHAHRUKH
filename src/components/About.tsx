@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -16,7 +17,7 @@ const AboutMe = ({ id }: { id: string }) => {
   return (
     <section id={id} className="flex items-center justify-center min-h-screen">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-purple-400 text-center mt-4" data-aos="fade-up">
+        <h2 className="text-3xl font-bold text-purple-400 text-center mt-14" data-aos="fade-up">
           About Me
         </h2>
         <p className="mt-2 text-sm text-primary text-center md:mb-3" data-aos="fade-up">
@@ -63,6 +64,25 @@ const AboutMe = ({ id }: { id: string }) => {
           </div>
         </div>
 
+        <div data-aos="fade-up" data-aos-delay="200">
+          {/* Why I Love Web Development Section */}
+          <h3 className="text-xl font-semibold text-white mt-7">Why I Love Web Development</h3>
+          <p className="text-gray-300 mt-2">
+            Web development allows me to turn ideas into reality. I enjoy creating 
+            interactive, responsive, and user-friendly applications that solve real-world 
+            problems. The fast-paced evolution of technology keeps me motivated to learn, explore, and innovate continuously.
+          </p>
+
+          {/* Key Achievements Section */}
+          <h3 className="text-xl font-semibold text-white mt-7">Key Achievements</h3>
+          <ul className="text-gray-300 mt-2 list-disc pl-5">
+            <li>Worked on 10+ personal projects, focusing on front-end development and design.</li>
+            <li>Studied web development through online resources and courses, building a strong foundation in HTML, CSS, JavaScript, React, and Next.js.</li>
+            <li>Gained hands-on experience during hackathons, where I applied my skills in real-time problem-solving.</li>
+            <li>Active in community discussions, learning from other developers and sharing knowledge.</li>
+          </ul>
+        </div>
+
         {/* Stats Section */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-[#1b0039] rounded-lg" data-aos="flip-left">
@@ -70,7 +90,7 @@ const AboutMe = ({ id }: { id: string }) => {
             <p className="text-gray-300 text-sm">Total Projects</p>
           </div>
           <div className="p-6 bg-[#1b0039] rounded-lg" data-aos="flip-left" data-aos-delay="200">
-            <h3 className="text-xl font-bold text-purple-400">7</h3>
+            <h3 className="text-xl font-bold text-purple-400">2</h3>
             <p className="text-gray-300 text-sm">Certificates</p>
           </div>
           <div className="p-6 bg-[#1b0039] rounded-lg" data-aos="flip-left" data-aos-delay="400">

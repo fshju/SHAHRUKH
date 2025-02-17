@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Home from "../components/Home";
 import AboutMe from "@/components/About";
@@ -8,13 +8,29 @@ import Comments from "@/components/Comments";
 import PortfolioShowcase from "@/components/Portfolio";
 import Footer from "@/components/Footer";
 
-
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
 
+  // ✅ Save Dark Mode Preference
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode) {
+      setDarkMode(savedMode === "true");
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      const newMode = !prev;
+      localStorage.setItem("darkMode", newMode.toString());
+      return newMode;
+    });
+  };
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    document.body.style.overflow = isOpen ? "auto" : "hidden"; // ✅ Fix Scroll Lock
   };
 
   const scrollToSection = (id: string) => {
@@ -23,17 +39,19 @@ const Page = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
     setIsOpen(false);
+    document.body.style.overflow = "auto"; // ✅ Reset Scroll Lock
   };
 
   return (
     <div
       className={`${darkMode ? "bg-darkBg text-lightText" : "bg-black text-white"} transition-all duration-500`}
     >
-      {/* Navbar */}
-      <header className="fixed top-0 left-0 w-full backdrop-blur-xl py-4 shadow-2xl z-10">
+      {/* ✅ Navbar */}
+      <header className="fixed top-0 left-0 w-full backdrop-blur-xl py-4 shadow-lg z-10">
         <div className="container mx-auto flex justify-between items-center px-6">
-          <h1 className="text-xl font-bold text-primary">Shahrukh</h1>
+          <h1 className="text-xl font-bold text-white font-serif">Shahrukh</h1>
 
+          {/* ✅ Mobile Menu Toggle */}
           <div className="md:hidden">
             <button onClick={toggleMenu} aria-label="Toggle menu">
               {isOpen ? (
@@ -44,72 +62,41 @@ const Page = () => {
             </button>
           </div>
 
-          {/* Navigation */}
+          {/* ✅ Navigation */}
           <nav className={`md:flex ${isOpen ? "block" : "hidden"} `}>
-            <ul className="flex flex-col md:flex-row gap-3 md:gap-6 items-center">
-              <li>
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="hover:text-purple-400 hover:underline"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("about")}
-                  className="hover:text-purple-400 hover:underline"
-                >
-                 About
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("portfolio")}
-                  className="hover:text-purple-400 hover:underline"
-                >
-                 Portfolio
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="hover:text-purple-400 hover:underline"
-                >
-                  Contact
-                </button>
-              </li>
-
-             <li className="md:hidden">
-                <button
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="px-4 py-2 border hover:border-black rounded-md bg-no-repeat bg-right bg-[length:0%_100%] hover:bg-[length:100%_100%] hover:bg-left transition-all duration-500 bg-gradient-to-r from-purple-500 to-purple-700"
-                >
-                  {darkMode ?  "Dark Mode" : "Light Mode"}
-                </button>
-              </li>
+            <ul className="flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+              {["home", "about", "portfolio", "contact"].map((item) => (
+                <li key={item}>
+                  <button
+                    onClick={() => scrollToSection(item)}
+                    className="hover:text-purple-400 hover:underline transition-all duration-300"
+                  >
+                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                  </button>
+                </li>
+              ))}
             </ul>
 
-            {/* Dark Mode */}
+            {/* ✅ Dark Mode Toggle */}
             <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="hidden md:block ml-4 px-4 py-2 border rounded-md hover:border-black bg-no-repeat bg-right bg-[length:0%_100%] hover:bg-[length:100%_100%] hover:bg-left transition-all duration-500 bg-gradient-to-r from-purple-500 to-purple-700"
+              onClick={toggleDarkMode}
+              className="ml-4 px-4 py-2 my-3  hover:border-black border bg-no-repeat bg-right bg-[length:0%_100%] hover:bg-[length:100%_100%] hover:bg-left transition-all duration-500 bg-gradient-to-r from-purple-500 to-purple-700 rounded-lg"
             >
-              {darkMode ? "Dark Mode" : "Light Mode"}
+              {darkMode ? "Light Mode" : "Dark Mode"}
             </button>
           </nav>
         </div>
       </header>
+
+      {/* ✅ Main Sections */}
       <Home id="home" />
       <AboutMe id="about" />
-      {/* <PortfolioSection/> */}
-      <PortfolioShowcase id="portfolio"/>
+      <PortfolioShowcase id="portfolio" />
       <div className="md:flex flex-wrap max-h-full justify-center overflow-hidden">
-  <Contact id="contact" />
-  <Comments />
-  <Footer/>
-</div>
-
+        <Contact id="contact" />
+        <Comments />
+        <Footer />
+      </div>
     </div>
   );
 };
