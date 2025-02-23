@@ -2,20 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base{
+    /* Minimum height set to full screen */
+  body {
+    min-height: 100vh; /* vh = viewport height */
+    background: linear-gradient(to right, #09001a, #1b0039); 
+    color: #fff ; /* Text color white */
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  }
