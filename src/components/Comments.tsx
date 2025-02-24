@@ -8,7 +8,6 @@ import { FaStar } from "react-icons/fa";
 import { FiTrash } from "react-icons/fi";
 import { urlFor } from "@/sanity/lib/imageUrl";
 import { motion } from "framer-motion";
-import "aos/dist/aos.css";
 
 interface Comment {
   _id: string;

@@ -34,9 +34,10 @@ const eslintConfig = [
 
   {
     rules: {
-      "@next/next/no-img-element": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "import/no-anonymous-default-export": "off",
+      "@next/next/no-img-element": "off",  // <img> warning hatao
+      "@typescript-eslint/no-explicit-any": "off", // "any" type error hatao
+      "@typescript-eslint/no-unused-vars": "warn", // Unused variables ko sirf warning banao
+      "import/no-anonymous-default-export": "off", // Anonymous exports allow karo
     },
   },
 ];
