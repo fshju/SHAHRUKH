@@ -5,7 +5,6 @@ import { fetchComments } from "@/sanity/lib/fetchComments";
 import { addComment } from "@/sanity/lib/addComment";
 import { deleteComment } from "@/sanity/lib/deleteComment";
 import { FaStar } from "react-icons/fa";
-import { FiTrash } from "react-icons/fi";
 import { urlFor } from "@/sanity/lib/imageUrl";
 import { motion } from "framer-motion";
 
@@ -174,13 +173,7 @@ export default function Comments() {
                     </div>
                   </div>
                 </div>
-                <button
-                  onClick={() => handleDelete(comment._id)}
-                  className="text-red-400 hover:text-red-500"
-                >
-                  <FiTrash className="w-5 h-5" />
-                </button>
-              </motion.div>
+               </motion.div>
             ))
           ) : (
             <p className="text-gray-400 text-sm text-center">
