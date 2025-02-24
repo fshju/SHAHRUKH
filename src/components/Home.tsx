@@ -16,7 +16,8 @@ export default function Home({ id }: { id: string }) {
           "A FULL-STACK DEVELOPER",
           "A FREELANCER",
           "A TECH ENTHUSIAST",
-        ],
+          "A Front-End Developer "
+                ],
         typeSpeed: 100,
         backSpeed: 50,
         loop: true,

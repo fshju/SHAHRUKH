@@ -1,4 +1,4 @@
-export default {
+const commentsSchema = {
   name: "userReview", 
   title: "User Review",
   type: "document",
@@ -25,3 +25,4 @@ export default {
     },
   ],
 };
+export default commentsSchema;
