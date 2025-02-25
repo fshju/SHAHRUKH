@@ -2,12 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base{
-    /* Minimum height set to full screen */
+@layer base {
   body {
-    min-height: 100vh; /* vh = viewport height */
-    background: linear-gradient(to right, #09001a, #1b0039); 
-    color: #fff ; /* Text color white */
+    min-height: 100vh;
+    background: linear-gradient(to right, #09001a, #1b0039);
+    color: white;
+    position: relative;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  .blur-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: flex;
+    justify-content: center; /* Centering blur on mobile */
+    align-items: center;
   }
+
+  .blur-circle {
+    position: absolute;
+    width: clamp(250px, 40vw, 500px); /* Responsive size */
+    height: clamp(250px, 40vw, 500px);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.85;
+    transition: transform 6s ease-in-out;
+  }
+
+  .red {
+    background: rgba(255, 0, 0, 0.7);
+    left: 10%;
+    top: 30%;
+    animation: float 6s infinite alternate ease-in-out;
+  }
+
+  .blue {
+    background: rgba(0, 0, 255, 0.7);
+    left: 50%;
+    top: 50%;
+    animation: float 8s infinite alternate ease-in-out;
+  }
+
+  .dark-blue {
+    background: rgba(0, 0, 139, 0.7);
+    left: 80%;
+    top: 20%;
+    animation: float 7s infinite alternate ease-in-out;
+  }
+
+  /* Center the circles on mobile */
+  @media (max-width: 768px) {
+    .red, .blue, .dark-blue {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @keyframes float {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(30px);
+    }
+  }
+}
