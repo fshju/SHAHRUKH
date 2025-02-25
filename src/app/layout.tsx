@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,11 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
-     
-        {children}
-      
+        {/* Background Blur Effect */}
+        <div className="blur-bg">
+          <div className="blur-circle red"></div>
+          <div className="blur-circle blue"></div>
+          <div className="blur-circle dark-blue"></div>
+        </div>
+
+        {/* Content */}
+        <main className="relative z-10 min-h-screen">{children}</main>
       </body>
     </html>
   );
