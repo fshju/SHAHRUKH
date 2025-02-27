@@ -5,7 +5,7 @@ import Home from "../components/Home";
 import AboutMe from "@/components/About";
 import Contact from "@/components/Contact";
 import Comments from "@/components/Comments";
-import PortfolioShowcase from "@/components/Portfolio";
+import PortfolioTabs from "@/components/PortfolioTabs";
 import Footer from "@/components/Footer";
 
 const Page = () => {
