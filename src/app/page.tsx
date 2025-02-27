@@ -91,7 +91,7 @@ const Page = () => {
       {/* ✅ Main Sections */}
       <Home id="home" />
       <AboutMe id="about" />
-      <PortfolioShowcase id="portfolio" />
+      <PortfolioTabs id="portfolio" />
       <div className="min-h-screen grid md:grid-cols-2 overflow-hidden">
       <Contact id="contact" />
       <Comments />
