@@ -62,14 +62,7 @@ export default function Comments() {
     setLoading(false);
   };
 
-  const handleDelete = async (commentId: string) => {
-    const success = await deleteComment(commentId);
-    if (success) {
-      setComments((prev) =>
-        prev.filter((comment) => comment._id !== commentId)
-      );
-    }
-  };
+
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-6 px-4 py-8">
