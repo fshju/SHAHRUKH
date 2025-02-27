@@ -70,7 +70,7 @@ const techStack = [
   "/Python.svg",
   "/typescript.svg",
   "/JavaScript.png",
-  "/tailwind.svg",
+  "/Tailwind.svg",
   "/CSS3.svg",
   "/HTML.svg",
   "/react.svg",
