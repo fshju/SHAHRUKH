@@ -11,7 +11,7 @@ const projects = [
     title: "Project One",
     description: "A simple e-commerce platform with payment integration.",
     imageUrl: "/1.jpg",
-    demoUrl: "https://figma-hackathon-tan-psi.vercel.app/",
+    demoUrl: "https://e-commerce-sanity-seven.vercel.app/",
   },
   {
     id: 2,
