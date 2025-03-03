@@ -62,6 +62,13 @@ const projects = [
     imageUrl: "/8.jpg",
     demoUrl: "https://portfolio-2-two-phi.vercel.app/",
   },
+    {
+    id: 9,
+    title: "Project Nine",
+    description: "A WeatherApp design by me.",
+    imageUrl: "/9.jpg",
+    demoUrl: "https://weather-now-ivory.vercel.app/",
+  },
 ];
 
 const certificates = ["/c1.jpg","/c2.jpg","/c3.jpg"];
