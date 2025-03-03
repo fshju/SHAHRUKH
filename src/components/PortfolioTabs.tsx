@@ -53,7 +53,7 @@ const projects = [
     title: "Project Seven",
     description: "This is my first portfolio.",
     imageUrl: "/7.jpg",
-    demoUrl: "https://portfolio-2-two-phi.vercel.app/",
+    demoUrl: "https://my-portfolio-pink-psi-84.vercel.app/",
   },
   {
     id: 8,
