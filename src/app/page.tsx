@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Home from "../components/Home";
@@ -7,10 +8,12 @@ import Contact from "@/components/Contact";
 import Comments from "@/components/Comments";
 import PortfolioTabs from "@/components/PortfolioTabs";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
 
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
+  const [showPreloader, setShowPreloader] = useState(true);
 
   // ✅ Save Dark Mode Preference
   useEffect(() => {
@@ -18,6 +21,11 @@ const Page = () => {
     if (savedMode) {
       setDarkMode(savedMode === "true");
     }
+    
+    // Show preloader on first load
+    setTimeout(() => {
+      setShowPreloader(false);
+    }, 2500);
   }, []);
 
   const toggleDarkMode = () => {
@@ -34,9 +42,20 @@ const Page = () => {
   };
 
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    if (id === "home") {
+      setShowPreloader(true);
+      setTimeout(() => {
+        setShowPreloader(false);
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 2500);
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsOpen(false);
     document.body.style.overflow = "auto";
@@ -89,12 +108,13 @@ const Page = () => {
       </header>
 
       {/* ✅ Main Sections */}
-      <Home id="home" />
-      <AboutMe id="about" />
-      <PortfolioTabs id="portfolio" />
+      {showPreloader && <Preloader />}
+      {!showPreloader && <Home id="home" />}
+      {/* <AboutMe id="about" /> */}
+      {/* <PortfolioTabs id="portfolio" />  */}
       <div className="min-h-screen grid md:grid-cols-2 overflow-hidden">
-      <Contact id="contact" />
-      <Comments />
+        <Contact id="contact" />
+        <Comments />
       </div>
       <Footer />
     </div>
