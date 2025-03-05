@@ -110,8 +110,8 @@ const Page = () => {
       {/* ✅ Main Sections */}
       {showPreloader && <Preloader />}
       {!showPreloader && <Home id="home" />}
-      {/* <AboutMe id="about" /> */}
-      {/* <PortfolioTabs id="portfolio" />  */}
+      <AboutMe id="about" />
+      <PortfolioTabs id="portfolio" /> 
       <div className="min-h-screen grid md:grid-cols-2 overflow-hidden">
         <Contact id="contact" />
         <Comments />
