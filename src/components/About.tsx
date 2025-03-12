@@ -10,7 +10,7 @@ const AboutMe = ({ id }: { id: string }) => {
   }, []);
 
   const handleOpenCV = () => {
-    const fileUrl = "https://drive.google.com/file/d/1fM3jqaaC1_TLzHd-YAxAoAzS16_APnSl/view?usp=drivesdk"; 
+    const fileUrl = "https://drive.google.com/file/d/1xgZMfbG8o4jcNl7M25Oj8F_DLZEmZCuI/view?usp=drivesdk"; 
     window.open(fileUrl, "_blank"); 
   };
 
@@ -86,11 +86,11 @@ const AboutMe = ({ id }: { id: string }) => {
         {/* Stats Section */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
           <div className="p-6 bg-[#1b0039] rounded-lg" data-aos="flip-left">
-            <h3 className="text-xl font-bold text-purple-400">11</h3>
+            <h3 className="text-xl font-bold text-purple-400">10+</h3>
             <p className="text-gray-300 text-sm">Total Projects</p>
           </div>
           <div className="p-6 bg-[#1b0039] rounded-lg" data-aos="flip-left" data-aos-delay="200">
-            <h3 className="text-xl font-bold text-purple-400">2</h3>
+            <h3 className="text-xl font-bold text-purple-400">3</h3>
             <p className="text-gray-300 text-sm">Certificates</p>
           </div>
           <div className="p-6 bg-[#1b0039] rounded-lg" data-aos="flip-left" data-aos-delay="400">
